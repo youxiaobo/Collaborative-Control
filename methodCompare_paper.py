@@ -117,6 +117,9 @@ print('手动计算auc：', NN_auc)
 
 
 # 将三条ROC曲线绘制在同一张图上
+
+plt.rcParams['font.sans-serif']=['Times New Roman']
+
 plt.figure()
 plt.plot(svm_fpr, svm_tpr, c='b', lw=2, alpha=0.7, label=u'SVM AUC=%.3f' % svm_auc)
 plt.plot(tree_fpr, tree_tpr, c='y', lw=2, alpha=0.7, label=u'tree AUC=%.3f' % tree_auc)
@@ -128,9 +131,25 @@ plt.xlim((-0.01, 1.02))
 plt.ylim((-0.01, 1.02))
 plt.xticks(np.arange(0, 1.1, 0.1))
 plt.yticks(np.arange(0, 1.1, 0.1))
-plt.xlabel('False Positive Rate', fontsize=13)
-plt.ylabel('True Positive Rate', fontsize=13)
+
+font2 = {'family' : 'Times New Roman',
+'weight' : 'normal',
+'size' : 13,
+}
+
+plt.xlabel('False Positive Rate', font2)
+plt.ylabel('True Positive Rate', font2)
 plt.grid(b=True, ls=':')
-plt.legend(loc='lower right', fancybox=True, framealpha=0.8, fontsize=12)
-plt.title(u'ROC curve comparison', fontsize=17)
+
+font3 = {'family' : 'Times New Roman',
+'weight' : 'normal',
+'size' : 12,
+}
+plt.legend(loc='lower right', fancybox=True, framealpha=0.8, prop=font3)
+
+font4 = {'family' : 'Times New Roman',
+'weight' : 'normal',
+'size' : 17,
+}
+plt.title(u'ROC curve comparison', font4)
 plt.show()
